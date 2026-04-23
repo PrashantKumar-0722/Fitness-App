@@ -1,5 +1,6 @@
 package com.project.fitness_app.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
@@ -33,5 +34,17 @@ public class Recommendation {
 
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+
+
+    @ManyToOne
+    @JoinColumn(name = "user_id",nullable = false,foreignKey = @ForeignKey(name = "fk_recommendation"))
+    @JsonIgnore
+    private User user;
+
+
+    @ManyToOne
+    @JoinColumn(name = "activity_id",nullable = false, foreignKey = @ForeignKey(name="fk_activity"))
+    @JsonIgnore
+    private Activity activity;
 
 }

@@ -31,7 +31,7 @@ public class Activity {
 
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "json")
-    private Map<String, Object> additionalMetices;
+    private Map<String, Object> additionalMetrics;
 
     private Integer duration;
     private Integer caloriesBurned;
